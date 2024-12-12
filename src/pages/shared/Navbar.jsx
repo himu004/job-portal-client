@@ -2,6 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import { useContext } from "react";
 import Swal from "sweetalert2";
+import { IoMdLogOut } from "react-icons/io";
+import logo from "../../assets/job-portal-logo.svg";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -61,7 +63,10 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Job Portal</a>
+        <Link to='/' className="btn btn-ghost text-xl">
+        <img className="w-10" src={logo} alt="Logo" />
+          Job Portal
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -71,7 +76,10 @@ const Navbar = () => {
           <>
             <button 
             onClick={handleSignOut}
-            className="btn btn-outline btn-info btn-sm">Logout</button>
+            className="btn btn-outline btn-info btn-sm">
+              Sign Out
+              <IoMdLogOut className="text-red-500 text-lg" />
+            </button>
           </>
         ) : (
           <>
