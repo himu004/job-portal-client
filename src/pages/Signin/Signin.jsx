@@ -6,7 +6,7 @@ import AuthContext from "../../context/AuthContext";
 import Swal from "sweetalert2";
 
 const Signin = () => {
-  const { createUser } = useContext(AuthContext);
+  const { signInUser } = useContext(AuthContext);
 
   const handleGoogleSignIn = () => {
     // Handle Google Sign-In
@@ -17,9 +17,27 @@ const Signin = () => {
     const formData = new FormData(e.target);
     const email = formData.get("email");
     const password = formData.get("password");
-    console.log(name, email, password);
+    // console.log(email, password);
 
     // Sign in
+    signInUser(email, password)
+    .then(result => {
+        // console.log(result.user);
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'User Signed In Successfully',
+        })
+        e.target.reset();
+    })
+    .catch(err => {
+        // console.log(err.message);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: err.message,
+        })
+    })
   };
 
   const defaultOptions = {

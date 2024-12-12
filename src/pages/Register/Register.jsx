@@ -32,7 +32,7 @@ const Register = () => {
 
     }
     const photoUrl = formData.get("photoUrl");
-    console.log(name, email, password, photoUrl);
+    // console.log(name, email, password, photoUrl);
 
     createUser(email, password)
     .then(result => {
