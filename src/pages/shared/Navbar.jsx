@@ -40,13 +40,14 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">Job Portal</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end">
-        <Link to='/register' className="btn">Register</Link>
+      <div className="navbar-end gap-3">
+        <Link to='/register' className="btn btn-outline btn-warning btn-sm">Register</Link>
+        <Link to='/signin' className="btn btn-outline btn-error btn-sm">Sign in</Link>
       </div>
     </nav>
   );
